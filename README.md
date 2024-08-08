@@ -1,4 +1,3 @@
-### Health_insurance
 This repository is an analysis of public health insurance data. The purpose is to identify trends and valuable insights to help the company make data-driven decisions, especially with pricing
 ### Table of Contents
 - [Project Overview](#project-overview)
@@ -76,3 +75,5 @@ The limitations of this analysis include:
 
 ### References
 Kaggle Health Insurance Dataset: [Link to Kaggle Dataset](https://www.kaggle.com/datasets/arunjangir245/healthcare-insurance-expenses?resource=download)
+
+😄
