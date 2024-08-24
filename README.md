@@ -51,6 +51,51 @@ SELECT
     ROUND(AVG(charges), 2) AS avg_charges, MIN(charges) AS min_charges, MAX(charges) AS max_charges
 FROM insurance_data;
 ```
+Explainer: This summary statistics is aimed at finding out the numeric values that defines the data set. The result reveals the relevant averages of the data set as evidenced by the syntax as well as the table headers. It is worth noting that the decimal places of the average bmi and charges are pegged at 2
+
+```sql
+SELECT sex, COUNT(*) AS count
+FROM insurance_data
+GROUP BY sex;
+```
+Explainer: This query presents the gender distribution in the data set
+
+```sql
+SELECT smoker, COUNT(*) AS count FROM insurance_data GROUP BY smoker;
+```
+Explainer: This query result shows the smoker status distribution from the data set with the priority grouping set for the smoker header
+
+```sql
+SELECT region, COUNT(*) AS count FROM insurance_data GROUP BY region;
+```
+Explainer: This code returns the count of insured persons by region
+
+```sql
+SELECT sex, COUNT(*) AS count, ROUND (SUM(charges),2) AS charges
+FROM insurance_data
+GROUP BY sex;
+```
+Explainer: This query results shows the total number of males and females and their associated charges in the data set. The decimal places is placed at 2
+
+```sql
+SELECT
+    CASE 
+        WHEN age BETWEEN 18 AND 29 THEN '18-29'
+        WHEN age BETWEEN 30 AND 39 THEN '30-39'
+        WHEN age BETWEEN 40 AND 49 THEN '40-49'
+        WHEN age BETWEEN 50 AND 59 THEN '50-59'
+        WHEN age >= 60 THEN '60+'
+    END AS age_range,
+    ROUND(AVG(bmi), 2) AS avg_bmi,
+    ROUND(AVG(charges), 2) AS avg_charges
+FROM 
+    insurance_data
+GROUP BY 
+    age_range
+ORDER BY 
+    age_range DESC;
+```
+Explainer: This aggregation query summarizes the average bmis and average charges of the specified age group within the data set
 
 ### Results/Findings
 The key findings from the analysis include:
